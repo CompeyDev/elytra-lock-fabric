@@ -20,11 +20,13 @@ public class ElytraLock implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		LOGGER.info("Elytra lock initializing!");
+
 		lockKeybind = KeyBindingHelper.registerKeyBinding(
 				new KeyBinding("key.elytralock.lock", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_J, "category.elytralock"));
-		client = MinecraftClient.getInstance();
+		LOGGER.info("Registered keybind for elytra lock");
 
-		LOGGER.info("Elytra lock initializing!");
+		client = MinecraftClient.getInstance();
 	}
 
 	public static boolean isLocked() {

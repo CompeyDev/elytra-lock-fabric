@@ -27,6 +27,8 @@ public class ClientPlayerInteractionManagerMixin {
     private void skipElytra(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> info, @Local MutableObject<ActionResult> mutableObject) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.isOf(Items.ELYTRA) && ElytraLock.isLocked()) {
+            ElytraLock.LOGGER.info("Skipping sending PlayerInteractItemC2SPacket for locked elytra");
+
             mutableObject.setValue(ActionResult.FAIL);
             info.setReturnValue((ActionResult) mutableObject.getValue());
         }
