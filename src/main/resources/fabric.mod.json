@@ -23,9 +23,9 @@
 		"elytra-lock.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.11",
-		"minecraft": "~1.20.4",
-		"java": ">=17",
+		"fabricloader": "${loader_version}",
+		"minecraft": "${minecraft_version}",
+		"java": "${java_version}",
 		"fabric-api": "*"
 	}
 }
