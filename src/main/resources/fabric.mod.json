@@ -3,13 +3,13 @@
 	"id": "elytra-lock",
 	"version": "${version}",
 	"name": "elytra-lock",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A simple mod which registers a keybind to lock your elytra from usage when not required.",
 	"authors": [
-		"Me!"
+		"CompeyDev <hi@devcomp.xyz>"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/CompeyDev/elytra-lock"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/elytra-lock/icon.png",
