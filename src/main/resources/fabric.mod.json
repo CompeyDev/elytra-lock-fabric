@@ -3,7 +3,7 @@
 	"id": "elytra-lock",
 	"version": "${version}",
 	"name": "Elytra Lock",
-	"description": "A simple mod which registers a keybind to lock your elytra from usage when not required.",
+	"description": " Client side fabric mod to lock elytra usage using a keybind.",
 	"authors": [
 		{
 			"name": "DevComp",
