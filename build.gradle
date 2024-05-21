@@ -1,5 +1,6 @@
 plugins {
 	id 'fabric-loom' version '1.6-SNAPSHOT'
+	id "com.modrinth.minotaur" version "2.+"
 	id 'maven-publish'
 }
 
@@ -77,6 +78,21 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}"}
 	}
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = "elytralock"
+    versionType = "release"
+	debugMode = true
+    uploadFile = remapJar
+    loaders = ["fabric", "quilt"]
+	syncBodyFrom = rootProject.file("README.md").text
+    dependencies {
+        required.project "fabric-api"
+        optional.version "modmenu", "${project.modmenu_version}"
+		optional.version "yacl", "${project.yacl_version}-fabric"
+    }
 }
 
 // configure the maven publication
