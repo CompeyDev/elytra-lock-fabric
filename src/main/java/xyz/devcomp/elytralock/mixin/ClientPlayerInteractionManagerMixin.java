@@ -17,6 +17,7 @@ import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 
@@ -28,6 +29,7 @@ public class ClientPlayerInteractionManagerMixin {
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.isOf(Items.ELYTRA) && ElytraLock.isLocked()) {
             ElytraLock.LOGGER.info("Skipping sending PlayerInteractItemC2SPacket for locked elytra");
+            ElytraLock.client.inGameHud.getChatHud().addMessage(Text.translatable("elytralock.chat.lockedMessage"));
 
             mutableObject.setValue(ActionResult.FAIL);
             info.setReturnValue((ActionResult) mutableObject.getValue());

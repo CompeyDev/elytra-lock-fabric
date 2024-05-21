@@ -5,7 +5,7 @@
 	"name": "elytra-lock",
 	"description": "A simple mod which registers a keybind to lock your elytra from usage when not required.",
 	"authors": [
-		"CompeyDev <hi@devcomp.xyz>"
+		"DevComp"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -17,15 +17,22 @@
 	"entrypoints": {
 		"client": [
 			"xyz.devcomp.elytralock.ElytraLock"
+		],
+		"modmenu": [
+			"xyz.devcomp.elytralock.integrations.ModMenuIntegration"
 		]
 	},
 	"mixins": [
 		"elytra-lock.mixins.json"
 	],
 	"depends": {
-		"fabricloader": "${loader_version}",
-		"minecraft": "${minecraft_version}",
 		"java": "${java_version}",
-		"fabric-api": "*"
+
+		"minecraft": "${minecraft_version}",
+		
+		"fabricloader": "${loader_version}",
+		"fabric-api": "*",
+		
+		"yet_another_config_lib_v3": "*"
 	}
 }
