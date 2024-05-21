@@ -1,7 +1,8 @@
 package xyz.devcomp.elytralock;
 
 import xyz.devcomp.elytralock.config.ConfigHandler;
-import xyz.devcomp.elytralock.config.Util;
+import xyz.devcomp.elytralock.config.ConfigUtil;
+import xyz.devcomp.elytralock.events.ClientTickEndHandler;
 import xyz.devcomp.elytralock.events.HudRenderHandler;
 
 import org.lwjgl.glfw.GLFW;
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.loader.api.FabricLoader;
@@ -27,7 +29,7 @@ public class ElytraLock implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		LOGGER.info("Elytra lock initializing!");
+		LOGGER.info("ElytraLock initializing!");
 
 		lockKeybind = KeyBindingHelper.registerKeyBinding(
 				new KeyBinding("key.elytralock.lock", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_J, "category.elytralock"));
@@ -35,7 +37,7 @@ public class ElytraLock implements ClientModInitializer {
 
 		client = MinecraftClient.getInstance();
 
-		if (Util.isYaclLoaded()) {
+		if (ConfigUtil.isYaclLoaded()) {
 			LOGGER.info("YACL_v3 is loaded, loading elytra toggle");
 			locked = new ConfigHandler().getInstance().toggle;
 		} else {
@@ -43,6 +45,9 @@ public class ElytraLock implements ClientModInitializer {
 		}
 
 		HudRenderCallback.EVENT.register(new HudRenderHandler());
+		ClientTickEvents.END_CLIENT_TICK.register(new ClientTickEndHandler());
+
+		LOGGER.info("Registered HUD_RENDER & END_CLIENT_TICK events successfully!");
 	}
 
 	public static boolean isLocked() {
