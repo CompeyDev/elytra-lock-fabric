@@ -13,6 +13,14 @@
 			}
 		}
 	],
+	"contributors": [
+		{
+			"name": "intergrav",
+			"contact": {
+				"homepage": "https://github.com/intergrav"
+			}
+		}
+	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://git.devcomp.xyz/DevComp/elytra-lock-fabric",
