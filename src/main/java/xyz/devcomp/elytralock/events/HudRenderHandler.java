@@ -19,6 +19,6 @@ public class HudRenderHandler implements HudRenderCallback {
         Window window = ElytraLock.client.getWindow();
         int width = window.getScaledWidth(), height = window.getScaledHeight();
 
-        context.drawGuiTexture(icon, (width / 2) + 95, height - HEIGHT - 3, WIDTH, HEIGHT);
+        context.drawTexture(icon, (width / 2) + 95, height - HEIGHT - 3, 0, 0, WIDTH, HEIGHT, WIDTH, HEIGHT);
     }
 }
