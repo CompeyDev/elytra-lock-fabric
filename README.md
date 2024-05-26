@@ -3,7 +3,7 @@
 # elytra-lock
 
 <div>
-  <a href="https://modrinth.com/mod/touch-grass-reminder">
+  <a href="https://modrinth.com/mod/elytralock">
     <img alt="modrinth" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg" />
   </a>
   <a href="https://quiltmc.org">
