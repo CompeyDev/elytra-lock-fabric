@@ -3,6 +3,7 @@ package xyz.devcomp.elytralock.events;
 import xyz.devcomp.elytralock.ElytraLock;
 
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.client.util.Window;
@@ -14,7 +15,9 @@ public class HudRenderHandler implements HudRenderCallback {
 
     @Override
     public void onHudRender(DrawContext context, RenderTickCounter tickCounter) {
-        // FIXME: Perhaps don't check whether the elytra is locked on every frame
+        if (!MinecraftClient.isHudEnabled())
+            return;
+
         Identifier icon = Identifier.of("elytra-lock",
                 "textures/gui/" + (ElytraLock.isLocked() ? "locked" : "unlocked") + ".png");
 
