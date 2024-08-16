@@ -25,6 +25,10 @@ public class ConfigHandler {
         }
     }
 
+    public static void saveConfig() {
+        HANDLER.save();
+    }
+
     public Screen showGui(Screen parent) {
         this.loadConfig();
         return HANDLER.generateGui().generateScreen(parent);

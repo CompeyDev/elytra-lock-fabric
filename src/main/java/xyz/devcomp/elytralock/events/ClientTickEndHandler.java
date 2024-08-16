@@ -28,6 +28,8 @@ public class ClientTickEndHandler implements EndTick {
             });
 
     public void onEndTick(MinecraftClient client) {
-        impl.run(client);
+        if (client.player != null) {
+            impl.run(client);
+        }
     }
 }

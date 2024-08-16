@@ -1,6 +1,6 @@
 package xyz.devcomp.elytralock.integrations;
 
-import xyz.devcomp.elytralock.config.ConfigHandler;
+import xyz.devcomp.elytralock.ElytraLock;
 import xyz.devcomp.elytralock.config.ConfigUtil;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
@@ -12,7 +12,7 @@ public class ModMenuIntegration implements ModMenuApi {
         return (parent) -> {
             if (!ConfigUtil.isYaclLoaded())
                 return parent;
-            return new ConfigHandler().showGui(parent);
+            return ElytraLock.config.showGui(parent);
         };
     }
 }
