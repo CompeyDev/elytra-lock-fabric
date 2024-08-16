@@ -1,9 +1,7 @@
 {
     "category.elytralock": "Elytra Lock Keybinds",
     "key.elytralock.lock": "Lock elytra",
-
-    "elytralock.chat.lockedMessage": "[elytra-lock] Elytra is locked!",
-
+    "elytralock.chat.lockedMessage": "[§e§lelytra-lock§r] Elytra is §olocked§r!",
     "yacl3.config.elytralock:config.toggle": "Toggle Elytra Lock",
     "yacl3.config.elytralock:config.category.elytralock": "Elytra Lock"
 }
