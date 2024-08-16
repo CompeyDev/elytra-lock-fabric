@@ -1,7 +1,6 @@
 package xyz.devcomp.elytralock;
 
 import xyz.devcomp.elytralock.config.ConfigHandler;
-import xyz.devcomp.elytralock.config.ConfigModel;
 import xyz.devcomp.elytralock.config.ConfigUtil;
 import xyz.devcomp.elytralock.events.ClientExitHandler;
 import xyz.devcomp.elytralock.events.ClientTickEndHandler;
