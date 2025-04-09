@@ -19,7 +19,7 @@ public class HudRenderHandler implements HudLayerRegistrationCallback {
 
     @Override
     public void register(LayeredDrawerWrapper layeredDrawer) {
-        layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, LAYER_ID, HudRenderHandler::render);
+        layeredDrawer.attachLayerAfter(IdentifiedLayer.HOTBAR_AND_BARS, LAYER_ID, HudRenderHandler::render);
     }
 
     private static void render(DrawContext context, RenderTickCounter tickCounter) {
