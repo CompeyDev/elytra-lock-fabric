@@ -25,7 +25,7 @@ public class PlayerEntityMixin {
                 }
             });
 
-    @Inject(method = "checkFallFlying()Z", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "checkGliding()Z", at = @At("HEAD"), cancellable = true)
     private void preventFallFlying(CallbackInfoReturnable<Boolean> info) {
         if (logOnce.run("Elytra is locked, so preventing fall flying"))
             info.setReturnValue(false);

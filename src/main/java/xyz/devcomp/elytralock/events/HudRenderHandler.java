@@ -1,21 +1,28 @@
 package xyz.devcomp.elytralock.events;
 
-import xyz.devcomp.elytralock.ElytraLock;
-
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.HudLayerRegistrationCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.IdentifiedLayer;
+import net.fabricmc.fabric.api.client.rendering.v1.LayeredDrawerWrapper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.client.util.Window;
 import net.minecraft.util.Arm;
 import net.minecraft.util.Identifier;
+import xyz.devcomp.elytralock.ElytraLock;
 
-public class HudRenderHandler implements HudRenderCallback {
+public class HudRenderHandler implements HudLayerRegistrationCallback {
     public static final int WIDTH = 16;
     public static final int HEIGHT = 16;
+    private static final Identifier LAYER_ID = Identifier.of("elytralock", "toggle-status-indicator");
 
     @Override
-    public void onHudRender(DrawContext context, RenderTickCounter tickCounter) {
+    public void register(LayeredDrawerWrapper layeredDrawer) {
+        layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, LAYER_ID, HudRenderHandler::render);
+    }
+
+    private static void render(DrawContext context, RenderTickCounter tickCounter) {
         if (!MinecraftClient.isHudEnabled())
             return;
 
@@ -32,6 +39,7 @@ public class HudRenderHandler implements HudRenderCallback {
         Window window = ElytraLock.client.getWindow();
         int width = window.getScaledWidth(), height = window.getScaledHeight();
 
-        context.drawTexture(icon, (width / 2) + offset, height - HEIGHT - 3, 0, 0, WIDTH, HEIGHT, WIDTH, HEIGHT);
+        context.drawTexture(RenderLayer::getGuiTextured, icon, (width / 2) + offset, height - HEIGHT - 3, 0, 0, WIDTH,
+                HEIGHT, WIDTH, HEIGHT);
     }
 }
