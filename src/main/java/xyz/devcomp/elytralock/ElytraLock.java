@@ -21,10 +21,10 @@ import xyz.devcomp.elytralock.events.HudRenderHandler;
 public class ElytraLock implements ClientModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Elytra Lock");
 	public static final FabricLoader LOADER = FabricLoader.getInstance();
-	private static KeyBinding lockKeybind;
-	private static boolean locked = false;
+
 	public static MinecraftClient client;
 	public static ConfigHandler config;
+	public static KeyBinding lockKeybind;
 
 	@Override
 	public void onInitializeClient() {
@@ -39,7 +39,6 @@ public class ElytraLock implements ClientModInitializer {
 		if (ConfigUtil.isYaclLoaded()) {
 			LOGGER.info("YACL_v3 is loaded, loading elytra toggle");
 			config = new ConfigHandler();
-			locked = config.getInstance().toggle;
 		} else {
 			LOGGER.warn("YACL_v3 is not loaded, not persisting elytra toggle");
 		}
@@ -52,10 +51,6 @@ public class ElytraLock implements ClientModInitializer {
 	}
 
 	public static boolean isLocked() {
-		if (lockKeybind.wasPressed()) {
-			locked = !locked;
-		}
-
-		return locked;
+		return config.getInstance().toggle;
 	}
 }

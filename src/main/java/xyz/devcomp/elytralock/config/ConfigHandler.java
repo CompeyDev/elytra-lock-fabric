@@ -10,7 +10,7 @@ import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 
 public class ConfigHandler {
     private boolean isLoaded = false;
-    public static final ConfigClassHandler<ConfigModel> HANDLER = ConfigClassHandler.createBuilder(ConfigModel.class)
+    private static final ConfigClassHandler<ConfigModel> HANDLER = ConfigClassHandler.createBuilder(ConfigModel.class)
             .id(Identifier.of("elytralock", "config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(ElytraLock.LOADER.getConfigDir().resolve("elytra-lock.json"))
