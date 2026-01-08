@@ -12,10 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.minecraft.entity.player.PlayerEntity;
 
-// TODO: In the future, make fall flying prevention and elytra lock separate
-// Fall flying prevention should be subset of elytra locking which should be 
-// individually toggleable
-
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin {
     private static RunOnceOnToggle<String> logOnce = new RunOnceOnToggle<String>(
@@ -27,7 +23,8 @@ public class PlayerEntityMixin {
 
     @Inject(method = "checkGliding()Z", at = @At("HEAD"), cancellable = true)
     private void preventFallFlying(CallbackInfoReturnable<Boolean> info) {
-        if (logOnce.run("Elytra is locked, so preventing fall flying"))
+        var config = ElytraLock.config.getInstance();
+        if (config.preventFallFlying && logOnce.run("Elytra is locked, so preventing fall flying"))
             info.setReturnValue(false);
     }
 }

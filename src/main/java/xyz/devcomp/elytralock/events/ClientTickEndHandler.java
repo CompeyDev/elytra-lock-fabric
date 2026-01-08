@@ -24,6 +24,12 @@ public class ClientTickEndHandler implements EndTick {
     public void onEndTick(MinecraftClient client) {
         if (client.player != null) {
             impl.run(client);
+
+            // Update the config state to reflect the real lock state
+            var instance = ElytraLock.config.getInstance();
+            if (ElytraLock.lockKeybind.wasPressed()) {
+                instance.toggle = !instance.toggle;
+            }
         }
     }
 }

@@ -8,4 +8,9 @@ public class ConfigModel {
     @AutoGen(category = "elytralock")
     @TickBox
     public boolean toggle = false;
+
+    @SerialEntry(comment = "Whether fall flying (entering a flying state while jumping) should be prevented")
+    @AutoGen(category = "elytralock")
+    @TickBox
+    public boolean preventFallFlying = true;
 }
