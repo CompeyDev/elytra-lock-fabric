@@ -11,7 +11,8 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
+import net.minecraft.client.option.KeyBinding.Category;
+import net.minecraft.util.Identifier;
 import xyz.devcomp.elytralock.config.ConfigHandler;
 import xyz.devcomp.elytralock.config.ConfigUtil;
 import xyz.devcomp.elytralock.events.ClientExitHandler;
@@ -24,14 +25,15 @@ public class ElytraLock implements ClientModInitializer {
 
 	public static MinecraftClient client;
 	public static ConfigHandler config;
-	public static KeyBinding lockKeybind;
+
+	public static Category category = Category.create(Identifier.of("elytralock", "category.elytralock"));
+	public static KeyBinding lockKeybind = new KeyBinding("key.elytralock.lock", GLFW.GLFW_KEY_J, category);
 
 	@Override
 	public void onInitializeClient() {
 		LOGGER.info("ElytraLock initializing!");
 
-		lockKeybind = KeyBindingHelper.registerKeyBinding(
-				new KeyBinding("key.elytralock.lock", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_J, "category.elytralock"));
+		KeyBindingHelper.registerKeyBinding(lockKeybind);
 		LOGGER.info("Registered keybind for locking elytra");
 
 		client = MinecraftClient.getInstance();
