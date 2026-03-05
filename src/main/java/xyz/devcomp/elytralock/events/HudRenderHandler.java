@@ -22,7 +22,7 @@ public class HudRenderHandler implements HudElement {
     }
 
     public void render(DrawContext context, RenderTickCounter tickCounter) {
-        if (!MinecraftClient.isHudEnabled())
+        if (!MinecraftClient.isHudEnabled() || !ElytraLock.config.getInstance().displayHUDIcon)
             return;
 
         int offset = switch (ElytraLock.client.player.getMainArm()) {

@@ -13,4 +13,9 @@ public class ConfigModel {
     @AutoGen(category = "elytralock")
     @TickBox
     public boolean preventFallFlying = true;
+
+    @SerialEntry(comment = "The display of the elytra status indicator icon")
+    @AutoGen(category = "elytralock")
+    @TickBox
+    public boolean displayHUDIcon = true;
 }
