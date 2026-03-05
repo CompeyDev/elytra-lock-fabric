@@ -25,11 +25,10 @@ public class HudRenderHandler implements HudElement {
         if (!MinecraftClient.isHudEnabled() || !ElytraLock.config.getInstance().displayHUDIcon)
             return;
 
+        assert ElytraLock.client.player != null;
         int offset = switch (ElytraLock.client.player.getMainArm()) {
-            case Arm.RIGHT:
-                yield 95;
-            case Arm.LEFT:
-                yield -115;
+            case Arm.RIGHT -> 95;
+            case Arm.LEFT -> -115;
         };
 
         Identifier icon = Identifier.of("elytra-lock",
