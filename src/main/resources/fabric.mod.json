@@ -3,7 +3,7 @@
 	"id": "elytra-lock",
 	"version": "${version}",
 	"name": "Elytra Lock",
-	"description": " Client side fabric mod to lock elytra usage using a keybind.",
+	"description": "Client side fabric mod to lock elytra usage using a keybind.",
 	"authors": [
 		{
 			"name": "DevComp",
