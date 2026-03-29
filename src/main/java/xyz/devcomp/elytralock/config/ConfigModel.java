@@ -5,17 +5,17 @@ import dev.isxander.yacl3.config.v2.api.autogen.*;
 
 public class ConfigModel {
     @SerialEntry(comment = "The status of the lock toggle")
-    @AutoGen(category = "elytralock")
+    @AutoGen(category = "elytra-lock")
     @TickBox
     public boolean toggle = false;
 
     @SerialEntry(comment = "Whether fall flying (entering a flying state while jumping) should be prevented")
-    @AutoGen(category = "elytralock")
+    @AutoGen(category = "elytra-lock")
     @TickBox
     public boolean preventFallFlying = true;
 
     @SerialEntry(comment = "The display of the elytra status indicator icon")
-    @AutoGen(category = "elytralock")
+    @AutoGen(category = "elytra-lock")
     @TickBox
     public boolean displayHUDIcon = true;
 }

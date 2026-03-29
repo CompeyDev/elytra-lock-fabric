@@ -28,9 +28,9 @@ import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 @Mixin(MultiPlayerGameMode.class)
 public class MultiPlayerGameModeMixin {
     @Unique
-    private static final Component ELYTRA_LOCKED_MESSAGE = Component.translatable("elytralock.chat.lockedMessage",
-            Component.translatable("elytralock.name").withStyle(ChatFormatting.YELLOW, ChatFormatting.BOLD),
-            Component.translatable("elytralock.state.locked").withStyle(ChatFormatting.ITALIC)
+    private static final Component ELYTRA_LOCKED_MESSAGE = Component.translatable("elytra-lock.chat.lockedMessage",
+            Component.translatable("elytra-lock.name").withStyle(ChatFormatting.YELLOW, ChatFormatting.BOLD),
+            Component.translatable("elytra-lock.state.locked").withStyle(ChatFormatting.ITALIC)
     );
 
     @Inject(method = "useItem(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;", at = @At(value = "INVOKE", target = "net/minecraft/client/multiplayer/MultiPlayerGameMode.startPrediction (Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/client/multiplayer/prediction/PredictiveAction;)V"), cancellable = true)

@@ -1,13 +1,13 @@
 {
-    "key.category.elytralock.category.elytralock": "Elytra Lock Keybinds",
-    "key.elytralock.lock": "Lock elytra",
+    "key.category.elytra-lock.category.elytralock": "Elytra Lock Keybinds",
+    "key.elytra-lock.lock": "Lock elytra",
 
-    "elytralock.chat.lockedMessage": "[%s] Elytra is %s!",
-    "elytralock.name": "elytra-lock",
-    "elytralock.state.locked": "locked",
+    "elytra-lock.chat.lockedMessage": "[%s] Elytra is %s!",
+    "elytra-lock.name": "elytra-lock",
+    "elytra-lock.state.locked": "locked",
 
     "yacl3.config.elytralock:config.toggle": "Toggle Elytra Lock",
     "yacl3.config.elytralock:config.preventFallFlying": "Prevent Fall Flying",
     "yacl3.config.elytralock:config.displayHUDIcon": "Display HUD Icon",
-    "yacl3.config.elytralock:config.category.elytralock": "Elytra Lock"
+    "yacl3.config.elytralock:config.category.elytra-lock": "Elytra Lock"
 }
