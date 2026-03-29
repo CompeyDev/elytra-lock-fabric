@@ -6,6 +6,7 @@ import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.client.renderer.RenderPipelines;
 
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
@@ -41,8 +42,7 @@ public class HudRenderHandler implements HudElement {
         Window window = ElytraLock.client.getWindow();
         int width = window.getGuiScaledWidth(), height = window.getGuiScaledHeight();
 
-        // FIXME: non qualified, use import
-        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, icon, (width / 2) + offset, height - HEIGHT - 3, 0, 0, WIDTH,
+        graphics.blit(RenderPipelines.GUI_TEXTURED, icon, (width / 2) + offset, height - HEIGHT - 3, 0, 0, WIDTH,
                 HEIGHT, WIDTH, HEIGHT);
     }
 }
