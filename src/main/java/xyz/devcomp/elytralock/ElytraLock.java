@@ -26,8 +26,8 @@ public class ElytraLock implements ClientModInitializer {
 	public static Minecraft client;
 	public static ConfigHandler config;
 
-	public static Category category = Category.register(Identifier.fromNamespaceAndPath("elytralock", "category.elytralock"));
-	public static KeyMapping lockKeybind = new KeyMapping("key.elytralock.lock", GLFW.GLFW_KEY_J, category);
+	public static Category category = Category.register(Identifier.fromNamespaceAndPath("elytra-lock", "category.elytralock"));
+	public static KeyMapping lockKeybind = new KeyMapping("key.elytra-lock.lock", GLFW.GLFW_KEY_J, category);
 
 	@Override
 	public void onInitializeClient() {

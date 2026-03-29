@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 public class HudRenderHandler implements HudElement {
     public static final int WIDTH = 16;
     public static final int HEIGHT = 16;
-    private static final Identifier LAYER_ID = Identifier.fromNamespaceAndPath("elytralock", "toggle-status-indicator");
+    private static final Identifier LAYER_ID = Identifier.fromNamespaceAndPath("elytra-lock", "toggle-status-indicator");
 
     public static void register() {
         HudElementRegistry.attachElementAfter(VanillaHudElements.HOTBAR, LAYER_ID, new HudRenderHandler());
@@ -35,7 +35,6 @@ public class HudRenderHandler implements HudElement {
             case HumanoidArm.LEFT -> -115;
         };
 
-        // FIXME: namespace should be 'elytralock'
         Identifier icon = Identifier.fromNamespaceAndPath("elytra-lock",
                 "textures/gui/" + (ElytraLock.isLocked() ? "locked" : "unlocked") + ".png");
 
