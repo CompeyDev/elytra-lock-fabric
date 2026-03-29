@@ -2,8 +2,8 @@ package xyz.devcomp.elytralock.config;
 
 import xyz.devcomp.elytralock.ElytraLock;
 
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.resources.Identifier;
 
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
@@ -11,7 +11,7 @@ import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 public class ConfigHandler {
     private boolean isLoaded = false;
     private static final ConfigClassHandler<ConfigModel> HANDLER = ConfigClassHandler.createBuilder(ConfigModel.class)
-            .id(Identifier.of("elytralock", "config"))
+            .id(Identifier.fromNamespaceAndPath("elytralock", "config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(ElytraLock.LOADER.getConfigDir().resolve("elytra-lock.json"))
                     .setJson5(true)
